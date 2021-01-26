@@ -169,9 +169,9 @@ def __get_software_projects(jira_api):
 
 def __check_current_language(jira_api):
     language = jira_api.get_locale()
-    if language != ENGLISH:
-        raise SystemExit(f'"{language}" language is not supported. '
-                         f'Please change your profile language to "English (United States) [Default]"')
+#    if language != ENGLISH:
+#        raise SystemExit(f'"{language}" language is not supported. '
+#                         f'Please change your profile language to "English (United States) [Default]"')
 
 
 def __check_for_admin_permissions(jira_api):
