@@ -107,6 +107,14 @@ class Issue(BasePage):
         else:
             self.__fill_textfield(text_description, selector=IssueLocators.issue_description_field)
 
+    def fill_description_create2(self, rte):
+        text_description = f'Description: {self.generate_random_string(100)}\n{{latex-block}}x^2{{latex-block}}'
+
+        if rte:
+            self.__fill_rich_editor_textfield(text_description, selector=IssueLocators.issue_description_field_RTE)
+        else:
+            self.__fill_textfield(text_description, selector=IssueLocators.issue_description_field)
+
     def fill_summary_create(self):
         summary = f"Issue created date {time.time()}"
         self.wait_until_clickable(IssueLocators.issue_summary_field).send_keys(summary)
