@@ -63,10 +63,10 @@ Refer to `app/selenium_ui/jira/modules.py` for examples.
 # def test_1_selenium_custom_action(jira_webdriver, jira_datasets, jira_screen_shots):
 #     extension_ui.app_specific_action(jira_webdriver, jira_datasets)
 
-def test_1_selenium_create_issue(jira_webdriver, jira_datasets, jira_screen_shots):
+def test_1_selenium_custom_action_create_issue(jira_webdriver, jira_datasets, jira_screen_shots):
     extension_ui.create_issue(jira_webdriver, jira_datasets)
 
-def test_1_selenium_view_issue(jira_webdriver, jira_datasets, jira_screen_shots):
+def test_1_selenium_custom_action_view_issue(jira_webdriver, jira_datasets, jira_screen_shots):
     extension_ui.view_issue(jira_webdriver, jira_datasets)
 
 # this action should be the last one
