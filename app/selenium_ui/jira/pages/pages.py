@@ -119,6 +119,10 @@ class Issue(BasePage):
         summary = f"Issue created date {time.time()}"
         self.wait_until_clickable(IssueLocators.issue_summary_field).send_keys(summary)
 
+    def fill_summary_create2(self):
+        summary = f"Custom Action Issue created date {time.time()}"
+        self.wait_until_clickable(IssueLocators.issue_summary_field).send_keys(summary)
+
     def assign_to_me(self):
         assign_to_me_links = self.get_elements(IssueLocators.issue_assign_to_me_link)
         for link in assign_to_me_links:

@@ -31,7 +31,7 @@ def create_issue(webdriver, dataset):
 
         @print_timing("selenium_custom_action_create_issue:fill_and_submit_issue_form")
         def sub_measure():
-            issue_modal.fill_summary_create()  # Fill summary field
+            issue_modal.fill_summary_create2()  # Fill summary field
             issue_modal.fill_description_create2(rte_status)  # Fill description field
             issue_modal.assign_to_me()  # Click assign to me
             issue_modal.set_resolution()  # Set resolution if there is such field
