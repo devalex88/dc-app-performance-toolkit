@@ -27,28 +27,21 @@ def app_specific_action(webdriver, datasets):
     measure()
 
 def app_specific_action_create_confluence_page(webdriver, datasets):
-    nav_panel = TopNavPanel(webdriver)
-    create_page = Editor(webdriver)
+    edit_page = Editor(webdriver, page_id=datasets['page_id'])
 
-    @print_timing("selenium_app_specific_action_create_page")
+    @print_timing("selenium_app_specific_action_edit_page")
     def measure():
 
-        @print_timing("selenium_app_specific_action_create_page:open_create_page_editor")
+        @print_timing("selenium_app_specific_action_edit_page:open_create_page_editor")
         def sub_measure():
-            nav_panel.click_create()
-            PopupManager(webdriver).dismiss_default_popup()
-            create_page.wait_for_create_page_open()
+            edit_page.go_to()
+            edit_page.wait_for_page_loaded()
         sub_measure()
 
-        PopupManager(webdriver).dismiss_default_popup()
+        edit_page.write_content()
 
-        create_page.write_title()
-        create_page.write_content()
-
-        @print_timing("selenium_app_specific_action_create_page:save_created_page")
+        @print_timing("selenium_app_specific_action_edit_page:save_edited_page")
         def sub_measure():
-            create_page.click_submit()
-            page = Page(webdriver)
-            page.wait_for_page_loaded()
+            edit_page.save_edited_page()
         sub_measure()
     measure()
