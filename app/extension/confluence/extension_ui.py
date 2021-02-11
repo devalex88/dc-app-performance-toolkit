@@ -27,21 +27,10 @@ def app_specific_action(webdriver, datasets):
     measure()
 
 def app_specific_action_create_confluence_page(webdriver, datasets):
-    edit_page = Editor(webdriver, page_id=datasets['page_id'])
+    page = Page(webdriver, page_id=datasets['page_id'])
 
-    @print_timing("selenium_app_specific_action_edit_page")
+    @print_timing("selenium_app_custom_action:create_confluence_page")
     def measure():
-
-        @print_timing("selenium_app_specific_action_edit_page:open_create_page_editor")
-        def sub_measure():
-            edit_page.go_to()
-            edit_page.wait_for_page_loaded()
-        sub_measure()
-
-        edit_page.write_content()
-
-        @print_timing("selenium_app_specific_action_edit_page:save_edited_page")
-        def sub_measure():
-            edit_page.save_edited_page()
-        sub_measure()
+        page.go_to()
+        page.wait_for_page_loaded()
     measure()
